@@ -13,14 +13,17 @@ public class Bebedor
     private int limiteAlcohol;
     //nombre del bebedor
     private String nombreBebedor;
+    //pregunta con si o no
+    private String preguntaBebedor;
 
-    public Bebedor()
+    public Bebedor(String nombreBebedor ,String preguntaBebedor)
     {
         this.nombreBebedor = nombreBebedor;
+        this.preguntaBebedor = preguntaBebedor;
         nivelAlcoholSangre = 0;
         limiteAlcohol = 10;
-    }
 
+    }
     public void beberCopa(Cubata nombreCopa)
     {
         if (nivelAlcoholSangre > limiteAlcohol)
@@ -33,6 +36,23 @@ public class Bebedor
             nivelAlcoholSangre = nivelAlcoholSangre + copa;
         }
     }
-    
-   
+
+    public int nivelAlcoholSangre()
+    {
+        return nivelAlcoholSangre;
+    }
+
+    public String preguntaBebedor ()
+    {
+        String preguntaBebedor = null;
+        if (nivelAlcoholSangre <= limiteAlcohol)
+        {
+            int caracteres = preguntaBebedor.length();
+            if (caracteres % 2== 0)
+            {preguntaBebedor = "NO";}
+            else
+            {preguntaBebedor = "SI";}
+        }
+        return preguntaBebedor;
+    }
 }
