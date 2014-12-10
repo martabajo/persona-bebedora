@@ -8,9 +8,9 @@
 public class Bebedor
 {
     //Atributo para medir el nivel de alcohol en sangre.
-    private int nivelAlcoholSangre;
+    private float nivelAlcoholSangre;
     //Atributo para el limite de alcohol.
-    private int limiteAlcohol;
+    private float limiteAlcohol;
     //nombre del bebedor
     private String nombreBebedor;
     //pregunta con si o no
@@ -24,6 +24,12 @@ public class Bebedor
         limiteAlcohol = 10;
 
     }
+
+    public float nivelAlcoholSangre()
+    {
+        return nivelAlcoholSangre;
+    }
+
     public void beberCopa(Cubata nombreCopa)
     {
         if (nivelAlcoholSangre > limiteAlcohol)
@@ -32,27 +38,47 @@ public class Bebedor
         }
         else
         {
-            int copa = nombreCopa.saberCantidad();
+            float copa = nombreCopa.saberCantidad();
             nivelAlcoholSangre = nivelAlcoholSangre + copa;
         }
     }
 
-    public int nivelAlcoholSangre()
+    public void preguntaBebedor (String preguntaBebedor)
     {
-        return nivelAlcoholSangre;
-    }
-
-    public String preguntaBebedor ()
-    {
-        String preguntaBebedor = null;
-        if (nivelAlcoholSangre <= limiteAlcohol)
+        int numeroDeLetrasDeLaPregunta = preguntaBebedor.length();
+        if ((nivelAlcoholSangre >= limiteAlcohol) || (preguntaBebedor.contains(nombreBebedor)))
+        {
+            //responde gritando
+            System.out.println(preguntaBebedor.toUpperCase());
+        }
+        else
         {
             int caracteres = preguntaBebedor.length();
-            if (caracteres % 2== 0)
-            {preguntaBebedor = "NO";}
+            if (caracteres % 2 == 0)
+            {
+                preguntaBebedor = "SI";
+            }
             else
-            {preguntaBebedor = "SI";}
+            {
+                preguntaBebedor = "NO";
+            }
         }
-        return preguntaBebedor;
+
+    }
+
+    public void cogerCoche()
+    {
+        if (nivelAlcoholSangre > 0.26 && nivelAlcoholSangre <= 0.50)
+        {
+            System.out.println("Estas detenido vas a pasar 24 horas en la carcel");
+        }
+        else if (nivelAlcoholSangre > 0.50)
+        {
+           System.out.println("Estas detenido vas a pasar 72 horas en la carcel");
+        }
+        else 
+        {
+            System.out.println("No has llegado al limite, pero controlate.");
+        }
     }
 }

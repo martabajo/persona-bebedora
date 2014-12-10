@@ -10,9 +10,9 @@ public class Cubata
     //tipo de bebeida
     private String nombreCopa;
     //cantidad de alcohol
-    private int cantidadAlcohol;
+    private float cantidadAlcohol;
  
-   public Cubata(String nombreCopa , int cantidadAlcohol)
+   public Cubata(String nombreCopa , float cantidadAlcohol)
    {
        this.nombreCopa = nombreCopa;
        this.cantidadAlcohol = cantidadAlcohol;
@@ -21,10 +21,11 @@ public class Cubata
    /**
     * Devuelve la cantidad de alcohol.
     */
-   public int saberCantidad()
+   public float saberCantidad()
    {
     return cantidadAlcohol;
    }
+   
    /**
     * Devuelve el nombre del cubata.
     */
